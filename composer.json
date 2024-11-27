@@ -1,0 +1,28 @@
+{
+    "name": "aliirfaan/citronel-job",
+    "version": "1.0.0",
+    "description": "Use jobs by loading settings from a database table for better configuration management.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aliirfaan",
+            "email": "aliirfaan.freelance@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "aliirfaan\\CitronelJob\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "aliirfaan\\CitronelJob\\CitronelJobProvider"
+            ]
+        }
+    }
+}
