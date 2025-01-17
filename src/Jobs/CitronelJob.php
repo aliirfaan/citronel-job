@@ -2,7 +2,12 @@
 
 namespace aliirfaan\CitronelJob\Jobs;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use aliirfaan\CitronelJob\Traits\HasJobPolicy;
 use InvalidArgumentException;
 
@@ -11,9 +16,9 @@ use InvalidArgumentException;
  * A job class that takes job settings from job policy table
  * Other jobs that use settings from job policy table can extend this job
  */
-class CitronelJob
+class CitronelJob implements ShouldQueue
 {
-    use InteractsWithQueue, HasJobPolicy;
+    use Dispatchable, InteractsWithQueue, Queueable, HasJobPolicy;
 
     /**
      * The number of times the job may be attempted.
